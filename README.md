@@ -20,7 +20,16 @@ Requires the companion [Logi Options+ action](https://github.com/claytonmark/log
 
 ## Installation
 
-### Sideloaded Plugin (Development)
+### From GitHub Releases (Recommended)
+
+1. Download `runelite-haptics.jar` from the [latest release](https://github.com/claytonmark/logitech_runelite_haptics-runelite_plugin/releases)
+2. Place the JAR in RuneLite's sideloaded plugins directory:
+   - **Windows**: `%USERPROFILE%\.runelite\sideloaded-plugins\`
+   - **macOS/Linux**: `~/.runelite/sideloaded-plugins/`
+3. Launch RuneLite with `--developer-mode` (required for sideloaded plugins)
+4. The plugin will appear in the RuneLite settings panel as **Logitech Haptics**
+
+### From Source
 
 1. Build the plugin JAR:
    ```bash

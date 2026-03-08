@@ -9,6 +9,26 @@ import net.runelite.client.config.ConfigSection;
 public interface RuneLiteHapticsConfig extends Config
 {
 	@ConfigSection(
+		name = "Instructions",
+		description = "How to install the companion Logi Options+ plugin",
+		position = -1,
+		closedByDefault = true
+	)
+	String instructionsSection = "instructions";
+
+	@ConfigItem(
+		keyName = "companionPluginUrl",
+		name = "Companion Plugin",
+		description = "Download and double-click the .lplug4 file to install in Logi Options+",
+		section = instructionsSection,
+		position = 0
+	)
+	default String companionPluginUrl()
+	{
+		return "https://github.com/claytonmark/logitech_runelite_haptics-logi_options_action/releases";
+	}
+
+	@ConfigSection(
 		name = "Click Haptics",
 		description = "Waveform for click interactions",
 		position = 0
@@ -93,7 +113,7 @@ public interface RuneLiteHapticsConfig extends Config
 	)
 	default HapticWaveform npcHoverWaveform()
 	{
-		return HapticWaveform.SUBTLE_COLLISION;
+		return HapticWaveform.OFF;
 	}
 
 	@ConfigItem(
@@ -105,7 +125,7 @@ public interface RuneLiteHapticsConfig extends Config
 	)
 	default HapticWaveform objectHoverWaveform()
 	{
-		return HapticWaveform.SUBTLE_COLLISION;
+		return HapticWaveform.OFF;
 	}
 
 	// --- Menu Haptics ---
@@ -126,7 +146,7 @@ public interface RuneLiteHapticsConfig extends Config
 	)
 	default HapticWaveform menuHoverWaveform()
 	{
-		return HapticWaveform.DAMP_COLLISION;
+		return HapticWaveform.OFF;
 	}
 
 	@ConfigItem(
