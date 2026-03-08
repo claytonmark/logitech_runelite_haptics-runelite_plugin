@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenLocal()
+    maven { url = 'https://repo.runelite.net' }
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'net.runelite:client:latest.release'
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'net.runelite:client:latest.release'
+    testImplementation 'net.runelite:jshell:latest.release'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.release.set(11)
+}
+
+tasks.register('run', JavaExec) {
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'com.logitechhaptics.RuneLiteHapticsPluginTest'
+    jvmArgs '-ea'
+    args '--developer-mode', '--debug'
+}
